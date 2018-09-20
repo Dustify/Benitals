@@ -18,6 +18,15 @@ const EXTREME = [
   '✊',
   '👀',
   '💦',
+  '💦',
+  '💦',
+  '💦',
+  '💦',
+  '🍆',
+  '🍆',
+  '🍆',
+  '🍆',
+  '🍆',
   '🍆',
   '🍑',
   '💯'
@@ -32,7 +41,7 @@ const onChange = () => {
     let substitution = character;
 
     if (character === 'a' || character === 'b') {
-      substitution = `${character}`;
+      substitution = `:${character}:`;
     } else if (character.match(LETTERS)) {
       substitution = `:regional_indicator_${character}:`;
     }
@@ -47,7 +56,7 @@ const onChange = () => {
 
 const getExtremeEmoji = () => {
     let result = '';
-    const nEmoji = Math.floor(Math.random() * 5);
+    const nEmoji = Math.floor(Math.random() * 4);
     for (let i = 0; i < nEmoji; i++) {
         result += EXTREME[Math.floor(Math.random() * EXTREME.length)];
     }
