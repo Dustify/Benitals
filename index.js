@@ -1,57 +1,57 @@
-// const express = require('express');
-// const app = express();
-// const port = process.env.PORT || 3000;
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
 
-// // app.use(express.static('public'));
+app.use(express.static('public'));
 
-// app.listen(port);
+app.listen(port);
 
-var http = require('http');
-var fs = require('fs');
-var path = require('path');
+// var http = require('http');
+// var fs = require('fs');
+// var path = require('path');
 
-var server = http.createServer(function (request, response) {
-    var file = request.url;
+// var server = http.createServer(function (request, response) {
+//     var file = request.url;
 
-    console.log(file);
+//     console.log(file);
 
-    if (file === '/') {
-        file = '/index.html';
-    }
+//     if (file === '/') {
+//         file = '/index.html';
+//     }
 
-    file = path.join(__dirname, 'public' + file);
+//     file = path.join(__dirname, 'public' + file);
 
-    console.log(file);
+//     console.log(file);
 
-    fs.exists(file, function (exists) {
-        if (exists) {
-            var contentType = "text/plain";
+//     fs.exists(file, function (exists) {
+//         if (exists) {
+//             var contentType = "text/plain";
 
-            if (file.endsWith('.html')) {
-                contentType = 'text/html';
-            }
+//             if (file.endsWith('.html')) {
+//                 contentType = 'text/html';
+//             }
 
-            if (file.endsWith('.css')) {
-                contentType = 'text/css';
-            }
+//             if (file.endsWith('.css')) {
+//                 contentType = 'text/css';
+//             }
 
-            if (file.endsWith('.js')) {
-                contentType = 'text/javascript';
-            }
+//             if (file.endsWith('.js')) {
+//                 contentType = 'text/javascript';
+//             }
 
-            response.writeHead(200, { "Content-Type": contentType });
-            var stream = fs.createReadStream(file);
+//             response.writeHead(200, { "Content-Type": contentType });
+//             var stream = fs.createReadStream(file);
 
-            stream.pipe(response);
-        } else {
-            response.writeHead(404);
-            console.log('404');
-            response.end();
-        }
-    });
-});
+//             stream.pipe(response);
+//         } else {
+//             response.writeHead(404);
+//             console.log('404');
+//             response.end();
+//         }
+//     });
+// });
 
-var port = process.env.PORT || 3000;
-server.listen(port);
+// var port = process.env.PORT || 3000;
+// server.listen(port);
 
-console.log("Server running at http://localhost:%d", port);
+// console.log("Server running at http://localhost:%d", port);
