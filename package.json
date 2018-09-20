@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Dustify/Benitals/issues"
   },
-  "homepage": "https://github.com/Dustify/Benitals#readme"
+  "homepage": "https://github.com/Dustify/Benitals#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
