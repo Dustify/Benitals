@@ -37,7 +37,7 @@ const onChange = () => {
       substitution = `:regional_indicator_${character}:`;
     }
 
-    result += substitution;
+    result += substitution + ' ';
 
     if (extremeMode.checked) result += getExtremeEmoji();
   }
