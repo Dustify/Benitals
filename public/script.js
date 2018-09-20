@@ -1,25 +1,58 @@
-var input = document.getElementById('input');
-var output = document.getElementById('output');
+const input = document.getElementById('input');
+const output = document.getElementById('output');
+const extremeMode = document.getElementById('extremeMode');
 
-input.onkeyup = () => {
-    var value = input.value.toLowerCase();
-    var result = '';
+const LETTERS = /[c-z]/;
+const EXTREME = [
+  '💪',
+  '👏',
+  '😙',
+  '😋',
+  '😭',
+  '😏',
+  '👌',
+  '😂',
+  '😤',
+  '🙌',
+  '👅',
+  '✊',
+  '👀',
+  '💦',
+  '🍆',
+  '🍑',
+  '💯'
+];
 
-    for (var i = 0; i < value.length; i++) {
-        var character = value[i];
+const onChange = () => {
+  const value = input.value.toLowerCase();
+  let result = '';
 
-        if (character === ' ') {
-            result += ' ';
-            continue;
-        }
+  for (let i = 0; i < value.length; i++) {
+    let character = value[i];
+    let substitution = character;
 
-        if (character === 'b') {
-            result += ':b: ';
-            continue;
-        }
-
-        result += ':regional_indicator_' + character + ': ';
+    if (character === 'a' || character === 'b') {
+      substitution = `${character}`;
+    } else if (character.match(LETTERS)) {
+      substitution = `:regional_indicator_${character}:`;
     }
 
-    output.innerHTML = result;
+    result += substitution;
+
+    if (extremeMode.checked) result += getExtremeEmoji();
+  }
+
+  output.innerHTML = result;
 };
+
+const getExtremeEmoji = () => {
+    let result = '';
+    const nEmoji = Math.floor(Math.random() * 5);
+    for (let i = 0; i < nEmoji; i++) {
+        result += EXTREME[Math.floor(Math.random() * EXTREME.length)];
+    }
+    return result;
+};
+
+input.onkeyup = onChange;
+extremeMode.onchange = onChange;
