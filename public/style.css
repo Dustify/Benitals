@@ -11,6 +11,11 @@ h1 {
     font-weight: 600;
 }
 
+button {
+    padding: 10px;
+    margin: 10px 0;
+}
+
 .wrapper {
     max-width: 1000px;
     margin: 0 auto;
@@ -35,4 +40,10 @@ h1 {
     font-size: 1.2em;
     overflow-wrap: break-word;
     line-height: 1.2em;
+}
+
+.hidden {
+    /* display: none; */
+    position: absolute;
+    left: -9999px;
 }

@@ -1,6 +1,8 @@
 const input = document.getElementById('input');
 const output = document.getElementById('output');
 const extremeMode = document.getElementById('extremeMode');
+const copy = document.getElementById('copy');
+const copyArea = document.getElementById('copyArea');
 
 const LETTERS = /[c-z]/;
 const EXTREME = [
@@ -55,13 +57,20 @@ const onChange = () => {
 };
 
 const getExtremeEmoji = () => {
-    let result = '';
-    const nEmoji = Math.floor(Math.random() * 4);
-    for (let i = 0; i < nEmoji; i++) {
-        result += EXTREME[Math.floor(Math.random() * EXTREME.length)];
-    }
-    return result;
+  let result = '';
+  const nEmoji = Math.floor(Math.random() * 4);
+  for (let i = 0; i < nEmoji; i++) {
+    result += EXTREME[Math.floor(Math.random() * EXTREME.length)];
+  }
+  return result;
+};
+
+const onCopy = () => {
+  copyArea.value = output.innerText;
+  copyArea.select();
+  document.execCommand('copy');
 };
 
 input.onkeyup = onChange;
 extremeMode.onchange = onChange;
+copy.onclick = onCopy;
